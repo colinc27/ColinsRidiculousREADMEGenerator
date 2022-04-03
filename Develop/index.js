@@ -48,14 +48,11 @@ const questions = () => {
       
       const promptProject = readmeData => {      
         // If there's no 'projects' array property, create one
-        if (!readmeData.projects) {
-          readmeData.projects = [];
-        }
         return inquirer
           .prompt([
             {
                 type: 'input',
-                name: 'projectName',
+                name: 'title',
                 message: 'What is the name of your project? (Required)',
                 validate: nameInput => {
                   if (nameInput) {
@@ -67,7 +64,7 @@ const questions = () => {
                 }
             },
                 {
-                type: 'editor',
+                type: 'input',
                 name: 'projectDescription',
                 message: 'Please enter a project description? (Required)',
                 validate: nameInput => {
@@ -103,28 +100,20 @@ const questions = () => {
             type: 'rawlist',
             name: 'License',
             message: 'Please choose a license',
-            choices: ['', '',''],
+            choices: ['EXE', 'MSU','MIT'],
           },
-          ])
-          .then(projectData => {
-            readmeData.projects.push(projectData);
-            if (projectData.confirmAddProject) {
-              return promptProject(readmeData);
-            } else {
-              return readmeData;
-            }
-          });
-      };
+          ])};
       
       questions()
         .then(promptProject)
         .then(readmeData => {
           console.log(readmeData);
-          // const pageREADME = generatePage(readmeData);
-          // fs.writeFile('./README.md', pageREADME, err => {
-          //   if (err) throw new Error(err);
-          //   console.log('README Created. Please see the README.md Page in your develop folder');
-          // });
+          console.log(readmeData.title)
+          const pageREADME = generatePage(readmeData);
+          fs.writeFile('./README.md', pageREADME, err => {
+          if (err) throw new Error(err);
+          console.log('README Created. Please see the README.md Page in your develop folder');
+         });
         });
 // TODO: Create a function to write README file
 //function writeToFile(fileName, data) {}
