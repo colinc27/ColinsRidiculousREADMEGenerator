@@ -2,54 +2,50 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generatePage = require('./utils/generateMarkdown')
-const questions = () => {
-        return inquirer.prompt([
-          {
-            type: 'input',
-            name: 'name',
-            message: 'What is your name? (Required)',
-            validate: nameInput => {
-              if (nameInput) {
-                return true;
-              } else {
-                console.log('Please enter your name!');
-                return false;
-              }
-            }
-          },
-          {
-            type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub Username (Required)',
-            validate: githubInput => {
-              if (githubInput) {
-                return true;
-              } else {
-                console.log('Please enter your GitHub username!');
-                return false;
-              }
-            }
-          },
-          {
-            type: 'input',
-            name: 'email',
-            message: 'Enter your email address(Required)',
-            validate: emailInput => {
-              if (emailInput) {
-                return true;
-              } else {
-                console.log('Please enter your GitHub username!');
-                return false;
-              }
-            }
-          },
-        ]);
-      };
-      
+
       const promptProject = readmeData => {      
         // If there's no 'projects' array property, create one
         return inquirer
           .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: 'What is your name? (Required)',
+                validate: nameInput => {
+                  if (nameInput) {
+                    return true;
+                  } else {
+                    console.log('Please enter your name!');
+                    return false;
+                  }
+                }
+              },
+              {
+                type: 'input',
+                name: 'github',
+                message: 'Enter your GitHub Username (Required)',
+                validate: githubInput => {
+                  if (githubInput) {
+                    return true;
+                  } else {
+                    console.log('Please enter your GitHub username!');
+                    return false;
+                  }
+                }
+              },
+              {
+                type: 'input',
+                name: 'email',
+                message: 'Enter your email address(Required)',
+                validate: emailInput => {
+                  if (emailInput) {
+                    return true;
+                  } else {
+                    console.log('Please enter your GitHub username!');
+                    return false;
+                  }
+                }
+              },
             {
                 type: 'input',
                 name: 'title',
@@ -104,8 +100,7 @@ const questions = () => {
           },
           ])};
       
-      questions()
-        .then(promptProject)
+promptProject()
         .then(readmeData => {
           console.log(readmeData);
           console.log(readmeData.title)
