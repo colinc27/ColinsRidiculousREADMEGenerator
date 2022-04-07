@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generatePage = require('./utils/generateMarkdown')
 
       const promptProject = readmeData => {      
         // If there's no 'projects' array property, create one
@@ -96,14 +95,12 @@ const generatePage = require('./utils/generateMarkdown')
             type: 'rawlist',
             name: 'License',
             message: 'Please choose a license',
-            choices: ['EXE', 'MSU','MIT'],
+            choices: ['Apache License 2.0', 'GNU GPLv3','MIT','ISC','No License'],
           },
           ])};
-      
+const generatePage = require('./utils/generateMarkdown')
 promptProject()
         .then(readmeData => {
-          console.log(readmeData);
-          console.log(readmeData.title)
           const pageREADME = generatePage(readmeData);
           fs.writeFile('./README.md', pageREADME, err => {
           if (err) throw new Error(err);
