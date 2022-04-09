@@ -14,8 +14,6 @@
   The user must have Node.js and a command line interface such as powershell or GITBASH installed prior to cloning this repo. After the repo is cloned install NPM inquirer in the repo that was created and this project will be ready to run.
   ## Usage <a name="usage"></a>
   Once everything is installed you can run on the command line node index.js while you are in the develop file in that repository. This will initialize the project and you will then be prompted with questions about the read me you will be generating. After the license queston is asked a read me will be generated and put into the repo that the index.js file is located.
-  ## Credits <a name="credits"></a>
-  The user must have Node.js and a command line interface such as powershell or GITBASH installed prior to cloning this repo. After the repo is cloned install NPM inquirer in the repo that was created and this project will be ready to run.
   ## How to Contribute <a name="contribute"></a>
   If you would like to contribute please contact me first. My contact info is down at the bottom of this read me
   ## Tests <a name="tests"></a>
