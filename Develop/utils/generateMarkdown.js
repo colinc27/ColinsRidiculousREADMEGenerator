@@ -29,8 +29,6 @@ function generateMarkdown(readmeData) {
   ${readmeData.projectInstallation}
   ## Usage <a name="usage"></a>
   ${readmeData.projectUsage}
-  ## Credits <a name="credits"></a>
-  ${readmeData.projectInstallation}
   ## How to Contribute <a name="contribute"></a>
   ${readmeData.projectContribution}
   ## Tests <a name="tests"></a>
