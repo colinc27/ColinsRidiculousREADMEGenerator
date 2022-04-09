@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generatePage = require('./utils/generateMarkdown')
 
       const promptProject = readmeData => {      
         // If there's no 'projects' array property, create one
@@ -98,7 +99,6 @@ const inquirer = require('inquirer');
             choices: ['Apache License 2.0', 'GNU GPLv3','MIT','ISC','No License'],
           },
           ])};
-const generatePage = require('./utils/generateMarkdown')
 promptProject()
         .then(readmeData => {
           const pageREADME = generatePage(readmeData);
